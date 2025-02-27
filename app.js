@@ -56,6 +56,11 @@ const showWinner = (winner) =>{
     msgContainer.classList.remove("hide");
     disabledBoxes();
 }
+const showDraw = () =>{
+    msg.innerText = `Game is Drawn`;
+    msgContainer.classList.remove("hide");
+    disabledBoxes();
+}
 
 const checkWinner = ()=>{
    for(let pattern of winPatterns){
@@ -66,7 +71,9 @@ const checkWinner = ()=>{
          if(pos1Val == pos2Val && pos2Val == pos3Val){
             showWinner(pos1Val);
          }
+         
       }
+      
    }
 }
 
