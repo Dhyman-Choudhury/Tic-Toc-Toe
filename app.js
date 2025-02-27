@@ -20,6 +20,7 @@ const winPatterns = [
 
 const resetGame = ()=>{
    turnO = true;
+   count=0;
    enabledBoxes();
    msgContainer.classList.add('hide');
 }
@@ -39,7 +40,13 @@ boxes.forEach((box) => {
         turnO = true;
      }
      box.disabled = true;
-     checkWinner();
+     count++;
+
+     let isWinner = checkWinner();
+     
+     if(count === 9 && !isWinner){
+      showDraw();
+     }
   })
 })
 
@@ -60,7 +67,7 @@ const showWinner = (winner) =>{
     disabledBoxes();
 }
 const showDraw = () =>{
-    msg.innerText = `Game is Drawn`;
+    msg.innerText = `Game was a Draw`;
     msgContainer.classList.remove("hide");
     disabledBoxes();
 }
